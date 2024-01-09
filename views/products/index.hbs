@@ -1,0 +1,40 @@
+<div class="container">
+    <h2>Danh Sách Sản Phẩm</h2>
+
+ <form class="d-flex" role="search" method="post" action="/search">
+        <input name="search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">STT</th>
+      <th scope="col">Tên</th>
+      <th scope="col">Hãng</th>
+      <th scope="col">Ảnh</th>
+         <th scope="col">Giá</th>
+      <th scope="col">Bình Luận</th>
+      <th scope="col">Ảnh</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each item}}
+    <tr>
+      <th scope="row">{{@index}}</th>
+      <td>{{this.ten}}</td>
+      <td>{{this.hang}}</td>
+      <td><img src="{{this.anh}}" width="50"></td>
+       <td>{{this.gia}}</td>
+      <td>{{this.binh_luan}}</td>
+      <td>
+        <a  class="btn btn-success" href="/edit/{{this.id}}">Sửa</a>
+        <a class="btn btn-danger" href="/delete/{{this.id}}">Xoá</a>
+         <a class="btn btn-warning" href="/chitiet/{{this.id}}">Chi Tiết</a>
+      </td>
+    </tr>
+  {{/each}}
+  </tbody>
+    <a  class="btn btn-info" href="/add">Thêm</a>
+</table>
+</div>
